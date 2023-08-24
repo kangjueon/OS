@@ -1,0 +1,17 @@
+# Copyright(c) 2023 All rights reserved by Heekuck Oh.
+# 운영체제와 CPU 코어의 수를 출력하는 셸스크립트이다.
+# 한양대학교 ERICA 컴퓨터학부 수업용으로 작성하였다.
+#
+OS="`uname`"
+case $OS in
+  'Linux')
+    printf '%s' $OS" 운영체제, CPU 코어 수 = " 
+    cat /proc/cpuinfo | grep processor | wc -l
+    ;;
+  'Darwin')
+    printf '%s' $OS" 운영체제, CPU 코어 수 = " 
+    sysctl -n hw.ncpu
+    ;;
+  *) ;;
+esac
+
